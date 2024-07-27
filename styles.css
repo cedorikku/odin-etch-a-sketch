@@ -1,0 +1,14 @@
+.canvas {
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas > .row {
+    display: flex;
+}
+
+.canvas > .row > span {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+}
