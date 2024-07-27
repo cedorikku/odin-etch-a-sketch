@@ -32,3 +32,9 @@ function paintBox(e) {
 // TODO Slider or button to ask for the user's input on how many pixels in the grid
 
 // TODO Ability to change which color user wants
+const colorPicker = document.querySelector("#colorPicker")
+    .addEventListener("input", (e) => setColor(e.target.value));
+
+function setColor(color) {
+    paintColor = color;
+}
