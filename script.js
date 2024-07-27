@@ -29,4 +29,6 @@ function paintBox(e) {
     e.target.style.backgroundColor = paintColor;
 }
 
-// TODO ...
+// TODO Slider or button to ask for the user's input on how many pixels in the grid
+
+// TODO Ability to change which color user wants
