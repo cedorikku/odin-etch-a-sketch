@@ -1,6 +1,5 @@
 const canvas = document.querySelector(".canvas");
 
-// TODO Create a 16x16 grid square w/ flexbox
 let gridSize = 16;
 
 function displayCanvas() {
@@ -10,7 +9,8 @@ function displayCanvas() {
         canvas.appendChild( row );
 
         for ( let j = 0; j < gridSize; j++ ) {
-            const box = document.createElement( "span" );
+            const box = document.createElement( "div" );
+            box.classList.add( "box" );
             row.appendChild( box );
         }
     }
