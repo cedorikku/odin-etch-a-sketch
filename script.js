@@ -18,6 +18,15 @@ function displayCanvas() {
 
 displayCanvas();
 
-// TODO Add event listeners to these squares when hovering. Their colors change after being hovered.
+canvas.addEventListener("mouseover", (e) => paintBox(e));
+
+let paintColor = "#000000";
+
+function paintBox(e) {
+    if (e.target.className === "canvas") {
+        return;
+    }
+    e.target.style.backgroundColor = paintColor;
+}
 
 // TODO ...
