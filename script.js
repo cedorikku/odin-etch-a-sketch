@@ -36,9 +36,21 @@ function paintBox(e) {
     e.target.style.backgroundColor = paintColor;
 }
 
-// TODO Slider or button to ask for the user's input on how many pixels in the grid
+const gridSlider = document.querySelector("#gridSlider")
+    .addEventListener("input", (e) => setCanvasSize(e.target.value));
 
-// TODO Ability to change which color user wants
+function setCanvasSize(size) {
+    gridSize = size;
+    clearCanvas();
+    displayCanvas();
+}
+
+function clearCanvas() {
+    while(canvas.firstElementChild) {
+        canvas.firstElementChild.remove();
+    }
+}
+
 const colorPicker = document.querySelector("#colorPicker")
     .addEventListener("input", (e) => setColor(e.target.value));
 
