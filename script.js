@@ -41,7 +41,16 @@ function paintBox(e) {
     if (e.target.className === "canvas") {
         return;
     }
+
+    if ( document.querySelector( "#shuffle" ).checked ) {
+        paintColor = `rgb(${ randomize(255) }, ${ randomize(255) }, ${ randomize(255) })`;
+    }
+
     e.target.style.backgroundColor = paintColor;
+}
+
+function randomize( n ) {
+    return Math.floor((Math.random() * n) + 1);
 }
 
 const gridSlider = document.querySelector("#gridSlider")
