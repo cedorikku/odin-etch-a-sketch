@@ -7,6 +7,24 @@ body {
     margin: 0;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.container .controls {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    padding: 1rem;
+}
+
+.container .controls input {
+    margin-bottom: 1rem;
+}
+
 .canvas {
     display: flex;
     flex-direction: column;
