@@ -27,7 +27,15 @@ displayCanvas();
 
 canvas.addEventListener("mouseover", (e) => paintBox(e));
 
-let paintColor = "#000000";
+const colorPicker = document.querySelector("#colorPicker");
+
+colorPicker.addEventListener("input", (e) => setColor(e.target.value));
+
+function setColor(color) {
+    paintColor = color;
+}
+
+let paintColor = colorPicker.value;
 
 function paintBox(e) {
     if (e.target.className === "canvas") {
@@ -49,11 +57,4 @@ function clearCanvas() {
     while(canvas.firstElementChild) {
         canvas.firstElementChild.remove();
     }
-}
-
-const colorPicker = document.querySelector("#colorPicker")
-    .addEventListener("input", (e) => setColor(e.target.value));
-
-function setColor(color) {
-    paintColor = color;
 }
