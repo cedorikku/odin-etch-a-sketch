@@ -10,17 +10,14 @@ body {
 .canvas {
     display: flex;
     flex-direction: column;
-    width: 50rem;
-    height: 50rem;
     border: 1px solid #000;
 }
 
 .canvas > .row {
     display: flex;
-    flex-basis: 3.125rem;
+    
 }
 
 .canvas > .row > .box {
     display: inherit;
-    flex-basis: 3.125rem;
 }

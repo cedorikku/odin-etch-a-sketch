@@ -1,8 +1,12 @@
 const canvas = document.querySelector(".canvas");
 
+const gridDimension = 960;
 let gridSize = 16;
 
 function displayCanvas() {
+    canvas.style.width = gridDimension + "px";
+    canvas.style.height = gridDimension + "px";
+
     for ( let i = 0; i < gridSize; i++ ) {
         const row = document.createElement( "div" );
         row.classList.add( "row" );
@@ -14,6 +18,9 @@ function displayCanvas() {
             row.appendChild( box );
         }
     }
+
+    document.querySelectorAll( ".canvas .row" ).forEach(row => row.style.flexBasis = (gridDimension / gridSize) + "px" );
+    document.querySelectorAll( ".canvas .box" ).forEach(box => box.style.flexBasis = (gridDimension / gridSize) + "px" );
 }
 
 displayCanvas();
