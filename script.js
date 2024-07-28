@@ -1,6 +1,6 @@
 const canvas = document.querySelector(".canvas");
 
-const gridDimension = 960;
+const gridDimension = 800;
 let gridSize = 16;
 
 function displayCanvas() {
