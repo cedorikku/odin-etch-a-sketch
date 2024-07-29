@@ -43,7 +43,8 @@ function paintBox(e) {
     }
 
     if ( document.querySelector( "#shuffle" ).checked ) {
-        paintColor = `rgb(${ randomize(255) }, ${ randomize(255) }, ${ randomize(255) })`;
+        e.target.style.backgroundColor = `rgb(${ randomize(255) }, ${ randomize(255) }, ${ randomize(255) })`;
+        return;
     }
 
     e.target.style.backgroundColor = paintColor;
