@@ -19,26 +19,26 @@ function displayCanvas() {
         }
     }
 
-    document.querySelectorAll( ".canvas .row" ).forEach(row => row.style.flexBasis = (gridDimension / gridSize) + "px" );
-    document.querySelectorAll( ".canvas .box" ).forEach(box => box.style.flexBasis = (gridDimension / gridSize) + "px" );
+    document.querySelectorAll( ".canvas .row" ).forEach(row => row.style.flexBasis = ( gridDimension / gridSize ) + "px" );
+    document.querySelectorAll( ".canvas .box" ).forEach(box => box.style.flexBasis = ( gridDimension / gridSize ) + "px" );
 }
 
 displayCanvas();
 
-canvas.addEventListener("mouseover", (e) => paintBox(e));
+canvas.addEventListener( "mouseover", ( e ) => paintBox( e ) );
 
 const colorPicker = document.querySelector("#colorPicker");
 
-colorPicker.addEventListener("input", (e) => setColor(e.target.value));
+colorPicker.addEventListener( "input", ( e ) => setColor( e.target.value ) );
 
-function setColor(color) {
+function setColor( color ) {
     paintColor = color;
 }
 
 let paintColor = colorPicker.value;
 
-function paintBox(e) {
-    if (e.target.className === "canvas") {
+function paintBox( e ) {
+    if ( e.target.className === "canvas" ) {
         return;
     }
 
@@ -54,10 +54,10 @@ function randomize( n ) {
     return Math.floor((Math.random() * n) + 1);
 }
 
-const gridSlider = document.querySelector("#gridSlider")
-    .addEventListener("input", (e) => setCanvasSize(e.target.value));
+const gridSlider = document.querySelector( "#gridSlider" )
+    .addEventListener( "input", ( e ) => setCanvasSize( e.target.value ) );
 
-function setCanvasSize(size) {
+function setCanvasSize( size ) {
     gridSize = size;
     clearCanvas();
     displayCanvas();
