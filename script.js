@@ -1,7 +1,15 @@
-const canvas = document.querySelector(".canvas");
+const canvas = document.querySelector( ".canvas" );
+const gridSlider = document.getElementById( "gridSlider" );
+const gridSliderLabel = document.getElementById( "gridSliderLabel" );
+const colorPicker = document.getElementById( "colorPicker" );
 
-const gridDimension = 800;
+const gridDimension = 600;
 let gridSize = 16;
+
+document.addEventListener( "DOMContentLoaded" , () => {
+    updateSliderLabel();
+    displayCanvas();
+});
 
 function displayCanvas() {
     canvas.style.width = gridDimension + "px";
@@ -23,11 +31,7 @@ function displayCanvas() {
     document.querySelectorAll( ".canvas .box" ).forEach(box => box.style.flexBasis = ( gridDimension / gridSize ) + "px" );
 }
 
-displayCanvas();
-
 canvas.addEventListener( "mouseover", ( e ) => paintBox( e ) );
-
-const colorPicker = document.querySelector("#colorPicker");
 
 colorPicker.addEventListener( "input", ( e ) => setColor( e.target.value ) );
 
@@ -42,7 +46,7 @@ function paintBox( e ) {
         return;
     }
 
-    if ( document.querySelector( "#shuffle" ).checked ) {
+    if ( document.getElementById( "shuffle" ).checked ) {
         e.target.style.backgroundColor = `rgb(${ randomize(255) }, ${ randomize(255) }, ${ randomize(255) })`;
         return;
     }
@@ -54,17 +58,21 @@ function randomize( n ) {
     return Math.floor((Math.random() * n) + 1);
 }
 
-const gridSlider = document.querySelector( "#gridSlider" )
-    .addEventListener( "input", ( e ) => setCanvasSize( e.target.value ) );
+gridSlider.addEventListener( "input", ( e ) => setCanvasSize( e.target.value ) );
 
 function setCanvasSize( size ) {
     gridSize = size;
+    updateSliderLabel();
     clearCanvas();
     displayCanvas();
 }
 
 function clearCanvas() {
-    while(canvas.firstElementChild) {
+    while( canvas.firstElementChild ) {
         canvas.firstElementChild.remove();
     }
+}
+
+function updateSliderLabel() {
+    gridSliderLabel.textContent = `${ gridSlider.value } x ${ gridSlider.value }`;
 }
